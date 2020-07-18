@@ -27,7 +27,7 @@ Route::namespace('API')->name('api.')->group(function(){
         
         Route::get('/{id}', 'EmployeeController@show')->name('single_employee'); // get 'employee/{id}' return the employee with id === {id}
 
-        Route::post('/', 'EmployeeController@create')->name('create_employee'); // post 'employee/' creates a new employee
+        Route::post('/', 'EmployeeController@store')->name('store_employee'); // post 'employee/' creates a new employee
 
         Route::put('/{id}', 'EmployeeController@update')->name('update_employee'); // put 'employee/{id}' updates the employee with id = {id} 
 
@@ -41,7 +41,7 @@ Route::namespace('API')->name('api.')->group(function(){
 
         Route::get('/{id}', 'CompanyController@show')->name('single_company'); // get 'company/{id}' return the company with id === {id}
 
-        Route::post('/', 'CompanyController@create')->name('create_company'); // post 'company/' creates a new company
+        Route::post('/', 'CompanyController@store')->name('store_company'); // post 'company/' creates a new company
 
         Route::put('/{id}', 'CompanyController@update')->name('update_company'); // put 'company/{id}' updates the company with id = {id} 
 

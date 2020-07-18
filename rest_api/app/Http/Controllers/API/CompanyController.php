@@ -33,9 +33,11 @@ class CompanyController extends Controller
         $company = $this->company->find($id);
 
         if(! $company) return response()->json(
-            ApiMessage::returnMessage('There is no company with id = ' . $id, 404),
-            404 // code 404 = =resourse not found
+            ApiMessage::returnMessage('There is no company with id = ' . $id, 204),
+            204 // code 204 = no content on success request
         );
+
+        $employees = $company->employees;
 
         $data = [ 'data' => $company ];
         
@@ -43,7 +45,7 @@ class CompanyController extends Controller
     }
 
     // creates a new commpany
-    public function create(Request $request) {
+    public function store(Request $request) {
 
         try{
             $companyData = $request->all();

@@ -34,9 +34,11 @@ class EmployeeController extends Controller
         $employee = $this->employee->find($id);
 
         if(! $employee) return response()->json(
-            ApiMessage::returnMessage('No employee with id = ' . $id . ' was found', 404), 
-            404 // code 404 = resource not found
+            ApiMessage::returnMessage('No employee with id = ' . $id . ' was found', 204), 
+            204 // code 204 = no content on success request
         ); 
+
+        $companies = $employee->companies;
 
         $data = [ 'data' => $employee ];
 
@@ -44,7 +46,7 @@ class EmployeeController extends Controller
     }
 
     // creates a new employee
-    public function create(Request $request) {
+    public function store(Request $request) {
 
         try {
             $employeeData = $request->all();
