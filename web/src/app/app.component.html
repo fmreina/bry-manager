@@ -7,3 +7,112 @@
     <li *ngFor="let employee of employees">{{ employee.name }} | {{ employee.cpf }} </li>
   </ul>
 </div>
+
+<div id="form-employee">
+  <h2>Form Employee</h2>
+  <form #f="ngForm" name="form-employee" (submit)="storeEmployee(f)">
+    <div class="form-group">
+      <label>Login</label>
+      <input 
+        type="text"
+        class="form-control"
+        name="login"
+        [(ngModel)]="employee.login"
+        #employeeLogin="ngModel"
+        required
+        pattern="^[a-zA-Z]+$"
+      >
+      <span class="help-block danger" *ngIf="employeeLogin.errors?.required && employeeLogin.touched">
+        O login é obrigatório
+      </span>
+      <span class="help-block danger" *ngIf="employeeLogin.errors?.pattern && employeeLogin.touched">
+        O login pode conter apenas letras
+      </span>
+    </div>
+    <div class="form-group">
+      <label>Senha</label>
+      <input 
+        type="text"
+        class="form-control"
+        name="password"
+        [(ngModel)]="employee.password"
+        #employeePassword="ngModel"
+        required
+      >
+      <span class="help-block danger" *ngIf="employeeLogin.errors?.required && employeeLogin.touched">
+        Senha é obrigatória
+      </span>
+    </div>
+    <div class="form-group">
+      <label>Nome</label>
+      <input 
+        type="text"
+        class="form-control"
+        name="name"
+        [(ngModel)]="employee.name"
+        #employeeName="ngModel"
+        required
+        pattern="^[a-zA-Z]+$"
+      >
+      <span class="help-block danger" *ngIf="employeeLogin.errors?.required && employeeLogin.touched">
+        O nome é obrigatório
+      </span>
+      <span class="help-block danger" *ngIf="employeeLogin.errors?.pattern && employeeLogin.touched">
+        O login pode conter apenas letras
+      </span>
+    </div>
+    <div class="form-group">
+      <label>CPF</label>
+      <input 
+        type="text"
+        class="form-control"
+        name="cpf"
+        [(ngModel)]="employee.cpf"
+        #employeecpf="ngModel"
+        required
+        pattern="^[0-9]+$"
+      >
+      <span class="help-block danger" *ngIf="employeeLogin.errors?.required && employeeLogin.touched">
+        O CPF é obrigatório
+      </span>
+      <span class="help-block danger" *ngIf="employeeLogin.errors?.pattern && employeeLogin.touched">
+        O CPF pode conter apenas números
+      </span>
+    </div>
+    <div class="form-group">
+      <label>Email</label>
+      <input 
+        type="text"
+        class="form-control"
+        name="email"
+        [(ngModel)]="employee.email"
+        #employeeEmail="ngModel"
+        required
+      >
+      <span class="help-block danger" *ngIf="employeeLogin.errors?.required && employeeLogin.touched">
+        O email é obrigatório
+      </span>
+    </div>
+    <div class="form-group">
+      <label>Endereço</label>
+      <input 
+        type="text"
+        class="form-control"
+        name="address"
+        [(ngModel)]="employee.address"
+        #employeeAddress="ngModel"
+        required
+      >
+      <span class="help-block danger" *ngIf="employeeLogin.errors?.required && employeeLogin.touched">
+        O endereço é obrigatório
+      </span>
+    </div>
+
+    <button 
+      class="btn btn-primary btn-sm"
+      [disabled]="f.invalid"
+    >
+    Salvar
+    </button>
+  </form>
+</div>

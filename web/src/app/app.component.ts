@@ -13,6 +13,8 @@ export class AppComponent implements OnInit {
     error = '';
     success = '';
 
+    employee = new Employee('', '', '', '', '', '');
+
     constructor( private employeeService : EmployeeService) {}
 
     ngOnInit() {
@@ -28,5 +30,24 @@ export class AppComponent implements OnInit {
                 this.error = error;
             }
         )
+    }
+
+    storeEmployee(form){
+        this.error = '';
+        this.success = '';
+
+        this.employeeService.storeEmployee(this.employee).subscribe(
+            (result: Employee[]) => {
+                // update the list of employees
+                this.employees = result;
+
+                // success message to the user
+                this.success = 'Criado com sucesso';
+
+                // reset the form
+                form.reset();
+            },
+            (error) => this.error = error
+        );
     }
 }

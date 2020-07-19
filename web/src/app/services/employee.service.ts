@@ -28,6 +28,16 @@ export class EmployeeService {
     );
   }
 
+  storeEmployee(employee: Employee): Observable<Employee[]> {
+    return this.http.post(`${this.baseUrl}/store`, { data: employee })
+      .pipe(map((result) => {
+        this.employees.push(result['data']);
+        return this.employees;
+      }),
+      catchError(this.handleError)
+    );
+  }
+
   // logs the error cause for debug and return an user friendly message
   private handleError( error: HttpErrorResponse ) {
     console.log(error);
