@@ -19,7 +19,7 @@ export class EmployeeService {
   constructor( private http: HttpClient ) { }
 
   getAll(): Observable<Employee[]> {
-    return this.http.get(`${this.baseUrl}/employee`).pipe(
+    return this.http.get<Employee[]>(`${this.baseUrl}/employee`).pipe(
       map((result) => {
         this.employees = result['data'];
         return this.employees;
