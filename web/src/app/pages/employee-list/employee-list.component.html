@@ -1,0 +1,47 @@
+<div class="alert alert-danger" *ngIf="error">{{ error }}</div>
+<div class="alert alert-success" *ngIf="success">{{ success }}</div>
+
+<div id="list-employees" style="padding: 2em;">
+    <div id="title" class="col-6 row">
+        <h2>Funcionários</h2>
+        &nbsp;
+        <div>
+            <a routerLink="/employee/register">Novo</a>
+        </div>
+    </div>
+
+  <div>
+      <table border='1' width='100%'>
+            <tr>
+                <th>ID</th>
+                <th>Nome</th>
+                <th>CPF</th>
+                <th>Login</th>
+                <th>Ação</th>
+            </tr>
+            <tr *ngFor="let employee of employees">
+                <td>{{ employee.id }}</td>
+                <td>{{ employee.name }}</td>
+                <td>{{ employee.cpf }}</td>
+                <td>{{ employee.login }}</td>
+                <td>
+                   <a [routerLink]="['/employee/detail/', employee.id]">Visualizar</a>
+                   &nbsp;
+                   <a routerLink="/employee" 
+                       (click)="deleteEmployee(employee)">Remover</a>
+                   <!-- <input 
+                    type="button"
+                    value="Remover"
+                    class="btn btn-danger btn-sm"
+                    (click)="deleteEmployee(employee)"
+                    routerLink="/employee"
+                    > -->
+                </td>
+            </tr>
+      </table>
+  </div>
+  
+  <div>
+    <a routerLink="/employee/register">Novo</a>
+  </div>
+</div>

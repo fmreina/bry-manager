@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Str;
 
-// header("Access-Control-Allow-Origin: *");
+// header("Access-Control-Allow-Origin: ");
 // header("Access-Control-Allow-Methods: PUT, GET, POST, DELETE");
 // header("Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Accept");
 
@@ -60,7 +60,7 @@ return [
             'collation' => 'utf8mb4_unicode_ci',
             'prefix' => '',
             'prefix_indexes' => true,
-            'strict' => true,
+            'strict' => false,
             'engine' => null,
             'options' => extension_loaded('pdo_mysql') ? array_filter([
                 PDO::MYSQL_ATTR_SSL_CA => env('MYSQL_ATTR_SSL_CA'),

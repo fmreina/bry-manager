@@ -11,6 +11,6 @@ class CompanyTableSeeder extends Seeder
      */
     public function run()
     {
-        factory(\App\Company::class, 10)->create();
+        factory(\App\Company::class, 2)->create();
     }
 }

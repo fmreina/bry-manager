@@ -1,0 +1,92 @@
+<div class="alert alert-danger" *ngIf="error">{{ error }}</div>
+<div class="alert alert-success" *ngIf="success">{{ success }}</div>
+
+<div id="company-details" style="padding: 2em;">
+    <h2>Detalhes</h2>
+    <div *ngFor="let company of companies">
+        <div>
+            <label>Nome:</label>
+            <input 
+                type="text"
+                [(ngModel)]="company.name"
+                class="form-control"
+                required
+                pattern="^[a-zA-Z 0-9]+$"
+                #name="ngModel"
+                [ngClass]="{ 'is-invalid': name.touched && name.invalid }"
+            >
+            <span class="help-block form-text text-muted" 
+                *ngIf= "name.errors?.required && name.touched"
+            >Campo nome é obrigatório
+            </span>
+            <span class="help-block form-text text-muted" 
+                *ngIf="name.errors?.pattern && name.touched"
+            >Campo nome pode conter apenas letras não acentuadas
+            </span>
+        </div>
+        <div>
+            <label>CNPJ:</label>
+            <input 
+                type="text"
+                [(ngModel)]="company.cnpj"
+                class="form-control"
+                required
+                pattern="^[0-9.-]+$"
+                #cnpj="ngModel"
+                [ngClass]="{ 'is-invalid': cnpj.touched && cnpj.invalid }"
+            >
+            <span class="help-block form-text text-muted" 
+                *ngIf="cnpj.errors?.required && cnpj.touched"
+            >Campo CNPF é obrigatório
+            </span>
+            <span class="help-block form-text text-muted" 
+                *ngIf="cnpj.errors?.pattern && cnpj.touched"
+            >Campo CNPF pode conter apenas números
+            </span>
+        </div>
+        <div>
+            <label>Endereço:</label>
+            <input 
+                type="text"
+                [(ngModel)]="company.address"
+                class="form-control"
+                required
+                #address="ngModel"
+                [ngClass]="{ 'is-invalid': address.touched && address.invalid }"
+            >
+            <span class="help-block form-text text-muted" 
+                *ngIf="address.errors?.required && address.touched"
+            >Campo endereço é obrigatório
+            </span>
+        </div>
+        <div>
+            <label>Funcionários:</label>
+            <div *ngFor="let employee of employees">
+                <label>teste</label>
+            </div> 
+        </div> 
+
+        <div>
+            <input 
+                type="button"
+                value="Salvar"
+                class="btn btn-success btn-sm"
+                [disabled]="name.invalid || cnpj.invalid || address.invalid"
+                (click)="updateCompany(company)"
+            >
+            &nbsp;
+            <input 
+                type="button"
+                value="Remover"
+                class="btn btn-danger btn-sm"
+                routerLink="/company"
+                (click)="deleteCompany(company)"
+            >
+            &nbsp;
+            <a routerLink="/company">Voltar</a>
+        </div>
+    </div>
+
+    <div>
+    </div>
+</div>

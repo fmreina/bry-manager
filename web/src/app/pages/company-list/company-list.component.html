@@ -1,0 +1,36 @@
+<div class="alert alert-danger" *ngIf="error">{{ error }}</div>
+<div class="alert alert-success" *ngIf="success">{{ success }}</div>
+
+<div id="list-companies" style="padding: 2em;">
+    <div id="title" class="col-6 row">
+        <h2>Empresas</h2>
+        &nbsp;
+        <div>
+            <a routerLink="/company/register">Novo</a>
+        </div>
+    </div>
+
+  <div>
+      <table border='1' width='100%' style="border-collapse: collapse;">
+            <tr>
+                <th>ID</th>
+                <th>Nome</th>
+                <th>Ação</th>
+            </tr>
+            <tr *ngFor="let company of companies">
+                <td>{{ company.id }}</td>
+                <td>{{ company.name }}</td>
+                <td>
+                   <a [routerLink]="['/company/detail/', company.id]">Visualizar</a>
+                   &nbsp;
+                   <a routerLink="/company" 
+                       (click)="deleteCompany(company)">Remover</a>
+                </td>
+            </tr>
+      </table>
+  </div>
+  
+  <div>
+    <a routerLink="/company/register">Novo</a>
+  </div>
+</div>

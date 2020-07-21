@@ -481,8 +481,13 @@ class ComposerStaticInitcc8f3deeeeb1f76e0d2286d62ff453f2
     );
 
     public static $classMap = array (
+        'App\\API\\ApiMessage' => __DIR__ . '/../..' . '/app/API/ApiMessage.php',
+        'App\\Company' => __DIR__ . '/../..' . '/app/Company.php',
         'App\\Console\\Kernel' => __DIR__ . '/../..' . '/app/Console/Kernel.php',
+        'App\\Employee' => __DIR__ . '/../..' . '/app/Employee.php',
         'App\\Exceptions\\Handler' => __DIR__ . '/../..' . '/app/Exceptions/Handler.php',
+        'App\\Http\\Controllers\\API\\CompanyController' => __DIR__ . '/../..' . '/app/Http/Controllers/API/CompanyController.php',
+        'App\\Http\\Controllers\\API\\EmployeeController' => __DIR__ . '/../..' . '/app/Http/Controllers/API/EmployeeController.php',
         'App\\Http\\Controllers\\Controller' => __DIR__ . '/../..' . '/app/Http/Controllers/Controller.php',
         'App\\Http\\Kernel' => __DIR__ . '/../..' . '/app/Http/Kernel.php',
         'App\\Http\\Middleware\\Authenticate' => __DIR__ . '/../..' . '/app/Http/Middleware/Authenticate.php',
@@ -591,6 +596,7 @@ class ComposerStaticInitcc8f3deeeeb1f76e0d2286d62ff453f2
         'Carbon\\Traits\\Units' => __DIR__ . '/..' . '/nesbot/carbon/src/Carbon/Traits/Units.php',
         'Carbon\\Traits\\Week' => __DIR__ . '/..' . '/nesbot/carbon/src/Carbon/Traits/Week.php',
         'Carbon\\Translator' => __DIR__ . '/..' . '/nesbot/carbon/src/Carbon/Translator.php',
+        'CompanyEmployeeTableSeeder' => __DIR__ . '/../..' . '/database/seeds/CompanyEmployeeTableSeeder.php',
         'CompanyTableSeeder' => __DIR__ . '/../..' . '/database/seeds/CompanyTableSeeder.php',
         'Cron\\AbstractField' => __DIR__ . '/..' . '/dragonmantank/cron-expression/src/Cron/AbstractField.php',
         'Cron\\CronExpression' => __DIR__ . '/..' . '/dragonmantank/cron-expression/src/Cron/CronExpression.php',

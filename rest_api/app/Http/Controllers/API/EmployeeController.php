@@ -53,9 +53,12 @@ class EmployeeController extends Controller
 
             $this->employee->create($employeeData);
 
+            // return response()->json(
+            //     ApiMessage::returnMessage('Success creating the employee', 201), 
+            //     201
+            // ); // code 201 = success on creating resource
             return response()->json(
-                ApiMessage::returnMessage('Success creating the employee', 201), 
-                201
+                ['data' => [$this->employee, $employeeData]], 201
             ); // code 201 = success on creating resource
 
         } catch (\Exception $e) {
@@ -107,7 +110,7 @@ class EmployeeController extends Controller
             $id->delete();
             
             return response()->json(
-                ApiMessage::returnMessage('Employee ' . $id->name . ' was removed.', 200),
+                // ApiMessage::returnMessage('Employee ' . $id->name . ' was removed.', 200),
                 200
             );
 
