@@ -2,7 +2,7 @@
 <div class="alert alert-success" *ngIf="success">{{ success }}</div>
 
 <div id="company-details" style="padding: 2em;">
-    <h2>Detalhes</h2>
+    <h2>Detalhes da Empresa</h2>
     <div *ngFor="let company of companies">
         <div>
             <label>Nome:</label>
@@ -61,11 +61,43 @@
         </div>
         <div>
             <label>Funcionários:</label>
-            <div *ngFor="let employee of employees">
-                <label>teste</label>
-            </div> 
+            <table border='1' width='100%'>
+                <tr>
+                    <th>ID</th>
+                    <th>Nome</th>
+                    <th>CPF</th>
+                    <th>Login</th>
+                    <th>Ação</th>
+                </tr>
+                <tr *ngFor="let employee of employees">
+                    <td>{{ employee.id }}</td>
+                    <td>{{ employee.name }}</td>
+                    <td>{{ employee.cpf }}</td>
+                    <td>{{ employee.login }}</td>
+                    <td>
+                       <a *ngIf="showTableAction" 
+                        [routerLink]="[
+                            '/employee/detail/', 
+                            employee.id, 
+                            'company/detail/'+company.id
+                            ]"
+                        >Visualizar</a>
+                       &nbsp;
+                       <a routerLink="/employee" 
+                           (click)="deleteEmployee(employee)">Remover</a>
+                       <!-- <input 
+                        type="button"
+                        value="Remover"
+                        class="btn btn-danger btn-sm"
+                        (click)="deleteEmployee(employee)"
+                        routerLink="/employee"
+                        > -->
+                    </td>
+                </tr>
+          </table>
         </div> 
 
+        <hr>
         <div>
             <input 
                 type="button"
@@ -83,7 +115,13 @@
                 (click)="deleteCompany(company)"
             >
             &nbsp;
-            <a routerLink="/company">Voltar</a>
+            <!-- <a routerLink="/company">Voltar</a> -->
+            <input 
+                type="button"
+                value="Voltar"
+                class="btn btn-default btn-sm"
+                (click)="back()"
+            >
         </div>
     </div>
 

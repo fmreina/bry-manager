@@ -25,7 +25,7 @@
                 <td>{{ employee.cpf }}</td>
                 <td>{{ employee.login }}</td>
                 <td>
-                   <a [routerLink]="['/employee/detail/', employee.id]">Visualizar</a>
+                   <a [routerLink]="['/employee/detail/', employee.id, 'employee']">Visualizar</a>
                    &nbsp;
                    <a routerLink="/employee" 
                        (click)="deleteEmployee(employee)">Remover</a>

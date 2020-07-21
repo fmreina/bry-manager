@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 
 import { Company } from '../../entity/company';
 import { CompanyService } from '../../services/company.service';
+import { Employee } from 'src/app/entity/employee';
 
 @Component({
   selector: 'app-company',
@@ -13,21 +14,30 @@ import { CompanyService } from '../../services/company.service';
 export class CompanyComponent implements OnInit {
 
   companies: Company[] ;
+  employees: Employee[];
   error = '';
   success = '';
+  origin: string = '';
+  showTableAction = true;
 
   company = new Company('', '', '');
 
   constructor( private employeeService : CompanyService, private route: ActivatedRoute, private router: Router) {}
 
   ngOnInit() {
-      this.getCompany(this.route.snapshot.params.id);
+    this.getCompany(this.route.snapshot.params.id);
+    origin = this.route.snapshot.params.origin;
+    // console.log('comp',origin);
+    if(String(origin).includes('employee/detail')){
+      this.showTableAction = false;
+    }
   }
 
   getCompany(id): void {
     this.employeeService.getById(id).subscribe(
         (result) => {
             this.companies = [result['data']];
+            this.employees = this.companies[0]['employees'];
         },
         (error) => {
             this.error = error;
@@ -60,6 +70,11 @@ export class CompanyComponent implements OnInit {
         (error) => this.error = error
     );
   }
+
+  private back(){
+    this.router.navigateByUrl(origin)
+  }
+
   private resetErrors(){
     this.success = '';
     this.error   = '';

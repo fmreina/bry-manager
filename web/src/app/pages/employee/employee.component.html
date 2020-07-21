@@ -2,7 +2,7 @@
 <div class="alert alert-success" *ngIf="success">{{ success }}</div>
 
 <div id="employee-details" style="padding: 2em;">
-    <h2>Detalhes</h2>
+    <h2>Detalhes do Funcionário</h2>
     <div *ngFor="let employee of employees">
         <div>
             <label>Login:</label>
@@ -108,13 +108,34 @@
             >Campo endereço é obrigatório
             </span>
         </div>
-        <div>
+        <div *ngIf="companies.length > 0">
             <label>Empresas:</label>
-            <div *ngFor="let companie of companies">
-                <label>teste</label>
-            </div> 
+            <table border='1' width='100%' style="border-collapse: collapse;">
+                <tr>
+                    <th>ID</th>
+                    <th>Nome</th>
+                    <th>Ação</th>
+                </tr>
+                <tr *ngFor="let company of companies">
+                    <td>{{ company.id }}</td>
+                    <td>{{ company.name }}</td>
+                    <td>
+                       <a *ngIf="showTableAction" 
+                        [routerLink]="[
+                            '/company/detail/', 
+                            company.id, 
+                            '/employee/detail/'+employee.id
+                            ]"
+                       >Visualizar</a>
+                       &nbsp;
+                       <a routerLink="/company" 
+                           (click)="deleteCompany(company)">Remover</a>
+                    </td>
+                </tr>
+          </table> 
         </div> 
 
+        <hr>
         <div>
             <input 
                 type="button"
@@ -132,7 +153,13 @@
                 (click)="deleteEmployee(employee)"
             >
             &nbsp;
-            <a routerLink="/employee">Voltar</a>
+            <!-- <a routerLink="/employee">Voltar</a> -->
+            <input 
+                type="button"
+                value="Voltar"
+                class="btn btn-default btn-sm"
+                (click)="back()"
+            >
         </div>
     </div>
 

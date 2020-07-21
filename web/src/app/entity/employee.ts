@@ -1,3 +1,4 @@
+import { Company } from './company';
 
 export class Employee {
     login: string;
@@ -6,6 +7,7 @@ export class Employee {
     cpf: string;
     email: string;
     address: string;
+    companies: Company[];
     id: number;
 
     constructor(
@@ -15,6 +17,7 @@ export class Employee {
         cpf: string,
         email: string,
         address: string,
+        companies?: Company[],
         id?: number,
     ) {
         this.login = login;
@@ -23,5 +26,7 @@ export class Employee {
         this.cpf = cpf;
         this.email = email;
         this.address = address;
+        this.companies = companies
+        this.id = id;
     }
 }

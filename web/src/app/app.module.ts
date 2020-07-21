@@ -14,12 +14,14 @@ import { CompanyComponent } from './pages/company/company.component';
 import { CompanyCreateComponent } from './pages/company-create/company-create.component';
 
 const routes: Routes = [
-  // { path: '',   redirectTo: '/company', pathMatch: 'full' }, // redirect to `employee list`
+  { path: '',   redirectTo: '/employee', pathMatch: 'full' }, // redirect to `employee list`
   { path: 'employee', component: EmployeeListComponent },
   { path: 'employee/detail/:id', component: EmployeeComponent },
+  { path: 'employee/detail/:id/:origin', component: EmployeeComponent },
   { path: 'employee/register', component: EmployeeCreateComponent },
   { path: 'company', component: CompanyListComponent },
   { path: 'company/detail/:id', component: CompanyComponent },
+  { path: 'company/detail/:id/:origin', component: CompanyComponent },
   { path: 'company/register', component: CompanyCreateComponent },
 ];
 

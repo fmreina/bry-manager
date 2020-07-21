@@ -21,7 +21,7 @@
                 <td>{{ company.id }}</td>
                 <td>{{ company.name }}</td>
                 <td>
-                   <a [routerLink]="['/company/detail/', company.id]">Visualizar</a>
+                   <a [routerLink]="['/company/detail/', company.id, 'company']">Visualizar</a>
                    &nbsp;
                    <a routerLink="/company" 
                        (click)="deleteCompany(company)">Remover</a>
