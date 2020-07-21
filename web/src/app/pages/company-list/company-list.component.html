@@ -1,17 +1,20 @@
 <div class="alert alert-danger" *ngIf="error">{{ error }}</div>
 <div class="alert alert-success" *ngIf="success">{{ success }}</div>
 
-<div id="list-companies" style="padding: 2em;">
+<div id="list-companies" class="content">
     <div id="title" class="col-6 row">
         <h2>Empresas</h2>
         &nbsp;
-        <div>
-            <a routerLink="/company/register">Novo</a>
+        <div class="add-icon">
+            <a routerLink="/company/register">
+                <!-- Novo -->
+                <i class="material-icons">add_circle_outline</i>
+            </a>
         </div>
     </div>
 
   <div>
-      <table border='1' width='100%' style="border-collapse: collapse;">
+      <table border='1' width='100%' >
             <tr>
                 <th>ID</th>
                 <th>Nome</th>
@@ -21,16 +24,18 @@
                 <td>{{ company.id }}</td>
                 <td>{{ company.name }}</td>
                 <td>
-                   <a [routerLink]="['/company/detail/', company.id, 'company']">Visualizar</a>
+                   <a [routerLink]="['/company/detail/', company.id, 'company']">
+                    <!-- Visualizar -->
+                    <span class="glyphicon glyphicon-eye-open"></span>
+                    </a>
                    &nbsp;
                    <a routerLink="/company" 
-                       (click)="deleteCompany(company)">Remover</a>
+                       (click)="deleteCompany(company)">
+                       <!-- Remover -->
+                       <span class="glyphicon glyphicon-trash"></span>
+                    </a>
                 </td>
             </tr>
       </table>
-  </div>
-  
-  <div>
-    <a routerLink="/company/register">Novo</a>
   </div>
 </div>

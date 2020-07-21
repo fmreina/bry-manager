@@ -1,7 +1,7 @@
 <div class="alert alert-danger" *ngIf="error">{{ error }}</div>
 <div class="alert alert-success" *ngIf="success">{{ success }}</div>
 
-<div id="employee-create" style="padding: 2em;">
+<div id="employee-create" class="content">
     <h2>Novo Funcionário</h2>
     
     <div id="form-employee">
@@ -122,19 +122,18 @@
             </span>
           </div>
       
-          <div>
+          <div class="row align-center"> 
             <button 
                 type="submit"
-                class="btn btn-success btn-sm"
+                class="button button_save button_large"
                 [disabled]="form.invalid"
                 >Salvar</button>
-                <!-- routerLink="/employee" -->
             &nbsp;
-            <!-- <button 
-                class="btn btn-danger btn-sm"
+            <button 
+                type="button"
+                class="button button_back button_large"
                 routerLink="/employee"
-            >Cancelar</button> -->
-            <a routerLink="/employee">Voltar</a>
+                >Voltar</button>
             </div>
         </form>
       </div>

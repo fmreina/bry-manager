@@ -1,12 +1,15 @@
 <div class="alert alert-danger" *ngIf="error">{{ error }}</div>
 <div class="alert alert-success" *ngIf="success">{{ success }}</div>
 
-<div id="list-employees" style="padding: 2em;">
+<div id="list-employees" class="content">
     <div id="title" class="col-6 row">
         <h2>Funcionários</h2>
         &nbsp;
-        <div>
-            <a routerLink="/employee/register">Novo</a>
+        <div class="add-icon">
+            <a routerLink="/employee/register">
+                <!-- Novo -->
+                <i class="material-icons">add_circle_outline</i>
+            </a>
         </div>
     </div>
 
@@ -25,23 +28,19 @@
                 <td>{{ employee.cpf }}</td>
                 <td>{{ employee.login }}</td>
                 <td>
-                   <a [routerLink]="['/employee/detail/', employee.id, 'employee']">Visualizar</a>
+                    
+                   <a [routerLink]="['/employee/detail/', employee.id, 'employee']">
+                    <!-- Visualizar -->
+                    <span class="glyphicon glyphicon-eye-open"></span>
+                    </a>
                    &nbsp;
                    <a routerLink="/employee" 
-                       (click)="deleteEmployee(employee)">Remover</a>
-                   <!-- <input 
-                    type="button"
-                    value="Remover"
-                    class="btn btn-danger btn-sm"
-                    (click)="deleteEmployee(employee)"
-                    routerLink="/employee"
-                    > -->
+                       (click)="deleteEmployee(employee)">
+                       <!-- Remover -->
+                       <span class="glyphicon glyphicon-trash"></span>
+                    </a>
                 </td>
             </tr>
       </table>
-  </div>
-  
-  <div>
-    <a routerLink="/employee/register">Novo</a>
   </div>
 </div>
