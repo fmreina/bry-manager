@@ -1,12 +1,6 @@
-# BRy-manager
+# BRy-Manager
 
 ### Código desenvolvido como resposta ao teste da BRy Tecnologia para a vaga de programador full stack PHP/Angular.
-
-<p align="center">
-<img alt="Repository size" src="https://img.shields.io/github/repo-size/fmreina/bry-manager.git">
-<img alt="Code size" src="https://img.shields.io/github/languages/code-size/fmreina/bry-manager.git">
-<img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/fmreina/bry-manager.git">
-</p>
 
 [Status do desenvolvimento](#status-do-desenvolvimento)
 
@@ -14,7 +8,9 @@ Para rodar a aplicação, clone o repositório e execute o script ```dockerrun.s
 
 ```$ sudo dockerrun.sh```
 
-O sript inicializará o container docker da aplicação back-end e realizará a pré configuração necessária. Na sequência inicializará a aplicação web que poderá ser acessada pelo navegador no endereço ```http://localhost:4200```.
+O sript inicializará o container docker da aplicação back-end e realizará a pré configuração necessária. Na sequência inicializará a aplicação web que poderá ser acessada pelo navegador no endereço <a href="http://localhost:4200">localhost:4200</a>.
+
+O arquivo _bry_api.postman_collection.json_ contém as requisições realizadas no Postman para testar os serviços CRUD da API REST.
 
 
 > ## Status do desenvolvimento:
@@ -37,7 +33,7 @@ O sript inicializará o container docker da aplicação back-end e realizará a 
 
 
 
-## Instruções:
+## Enunciado:
 ### Questão 1:
 O objetivo é desenvolver uma API REST em PHP para realizar o gerenciamento de funcionários e empresas. A aplicação deve realizar as  operações básicas de um CRUD com os devidor verbos TTP e códigos de retorno. Neste cenário, cada funcionário pode pertencer a uma ou mais empresas, assim como cada empresa pode possuir um ou mais funcionários. 
 
