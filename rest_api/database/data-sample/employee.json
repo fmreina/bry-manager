@@ -1,0 +1,35 @@
+[
+    {
+        "id": 1,
+        "login": "geor63",
+        "password": "123456",
+        "name": "George Allen",
+        "cpf": "1234567890",
+        "email": "test@email.com",
+        "address": "Rua Teste número 19",
+        "created_at": "2020-07-22T18:53:53.000000Z",
+        "updated_at": "2020-07-22T18:53:53.000000Z"
+    },
+    {
+        "id": 2,
+        "login": "lilo",
+        "password": "123456",
+        "name": "Lilo Maarav",
+        "cpf": "1234567890",
+        "email": "test@email.com",
+        "address": "Rua Teste número 19",
+        "created_at": "2020-07-22T18:53:53.000000Z",
+        "updated_at": "2020-07-22T18:53:53.000000Z"
+    },
+    {
+        "id": 3,
+        "login": "stitch",
+        "password": "123456",
+        "name": "Stich Akoni",
+        "cpf": "1234567890",
+        "email": "test@email.com",
+        "address": "Rua Teste número 19",
+        "created_at": "2020-07-22T18:53:53.000000Z",
+        "updated_at": "2020-07-22T18:53:53.000000Z"
+    }
+]

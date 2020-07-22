@@ -16,3 +16,14 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/env', function () {
+    dd([
+        env('APP_URL'),
+        env('DB_CONNECTION'),
+        env('DB_HOST'),
+        env('DB_DATABASE'),
+        env('DB_USERNAME'),
+        env('DB_PASSWORD')
+        ]);
+});

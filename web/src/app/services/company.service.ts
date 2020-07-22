@@ -11,7 +11,7 @@ import { Company } from '../entity/company';
 })
 export class CompanyService {
 
-  baseUrl = 'http://localhost:8000/api';
+  baseUrl = 'http://localhost/api';
   
   company: Company[];
 

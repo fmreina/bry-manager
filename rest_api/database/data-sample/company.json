@@ -1,0 +1,26 @@
+[
+    {
+        "id": 1,
+        "name": "Testes LTDA",
+        "cnpj": "1234567890123",
+        "address": "Rua do App número 22",
+        "created_at": "2020-07-22T18:53:53.000000Z",
+        "updated_at": "2020-07-22T18:53:53.000000Z"
+    },
+    {
+        "id": 2,
+        "name": "Iron Construtora",
+        "cnpj": "1234567890123",
+        "address": "Rua do App número 22",
+        "created_at": "2020-07-22T18:53:53.000000Z",
+        "updated_at": "2020-07-22T18:53:53.000000Z"
+    },
+    {
+        "id": 3,
+        "name": "Nova Consultoria",
+        "cnpj": "1234567890123",
+        "address": "Rua do App número 22",
+        "created_at": "2020-07-22T18:53:53.000000Z",
+        "updated_at": "2020-07-22T18:53:53.000000Z"
+    }
+]
