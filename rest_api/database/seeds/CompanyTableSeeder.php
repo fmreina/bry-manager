@@ -12,20 +12,16 @@ class CompanyTableSeeder extends Seeder
      */
     public function run()
     {
-        factory(\App\Company::class, 2)->create();
+        $json = File::get("database/data-sample/company.json");
 
-        // DB::table('company')->delete();
+        $data = json_decode($json);
 
-        // $json = File::get()("database/data-sample/employee.json");
-
-        // $data = json_decode($json);
-
-        // foreach ($data as $obj) {
-        //     Company::create(array(
-        //       "name" => $obj->name,
-        //       "cnpj" => $obj->cnpj,
-        //       "address" => $obj->address,
-        //    ));
-        // }
+        foreach ($data as $obj) {
+            Company::create(array(
+              "name" => $obj->name,
+              "cnpj" => $obj->cnpj,
+              "address" => $obj->address,
+           ));
+        }
     }
 }

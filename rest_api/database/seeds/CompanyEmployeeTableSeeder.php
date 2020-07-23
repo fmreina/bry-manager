@@ -12,19 +12,15 @@ class CompanyEmployeeTableSeeder extends Seeder
      */
     public function run()
     {
-        factory(\App\CompanyEmployee::class, 2)->create();
+        $json = File::get("database/data-sample/company-employee.json");
 
-        // DB::table('company_employee')->delete();
+        $data = json_decode($json);
 
-        // $json = File::get()("database/data-sample/employee.json");
-
-        // $data = json_decode($json);
-
-        // foreach ($data as $obj) {
-        //     CompanyEmployee::create(array(
-        //       "company_id" => $obj->company_id,
-        //       "employee_id" => $obj->employee_id,
-        //    ));
-        // }
+        foreach ($data as $obj) {
+            CompanyEmployee::create(array(
+              "company_id" => $obj->company_id,
+              "employee_id" => $obj->employee_id,
+           ));
+        }
     }
 }

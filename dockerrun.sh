@@ -9,7 +9,7 @@ docker exec -ti bryapp chmod -R 777 /application/storage
 
 docker exec -ti bryapp php artisan migrate
 
-# docker exec -ti bryapp php artisan db:seed
+docker exec -ti bryapp php artisan db:seed
 
 cd ../web/
 
